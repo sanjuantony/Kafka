@@ -1,0 +1,33 @@
+# Docker command for Mac
+docker run --rm -it \
+                -p 2181:2181 -p 3030:3030 -p 8081:8081 \
+                -p 8082:8082 -p 8083:8083 -p 9092:9092 \
+                -e ADV_HOST=127.0.0.1 \
+                landoop/fast-data-dev
+
+# Kafka Command Line Tools
+docker run --rm -it --net=host landoop/fast-data-dev bash
+
+# ------ Kafka Topics Commands ----------
+# List topics
+kafka-topics --zookeeper 127.0.0.1:2181 --list
+
+# Create a new topic
+kafka-topics --zookeeper 127.0.0.1:2181 --create --topic first_topic \
+                --partitions 3 --replication-factor 2
+
+# Delete a topic
+kafka-topics --zookeeper 127.0.0.1:2181 --delete --topic second_topic
+
+# Describe a topic
+kafka-topics --zookeeper 127.0.0.1:2181 --describe --topic first_topic
+
+# ------ Kafka Commands to Publish Data ----------
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic first_topic 
+
+# ------ Kafka Commands to Consume Data ----------
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic 
+
+# Assign a Group ID to the consumer (Will commit the offset once part of a group)
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic first_topic \
+                --consumer-property group.id=mygroup1 --from-beginning

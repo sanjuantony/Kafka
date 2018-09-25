@@ -1,0 +1,24 @@
+# Commands to Start Kafka Services
+# --------------------------------
+# 1. Start ZooKeeper
+zkServer start
+
+# 2. Start Kafka Server
+kafka-server-start $KAFKA_HOME/config/server.properties
+
+# Commands to Stop Kafka Services
+# --------------------------------
+# Start ZooKeeper
+zkServer stop
+
+# Start Kafka Server
+kafka-server-stop $KAFKA_HOME/config/server.properties
+
+# Commands to Stop Kafka Services
+# --------------------------------
+# kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <<topic-name>>
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 \
+            --partitions 1 --topic Hello-Kafka
+
+# List Kafka Topics
+bin/kafka-topics.sh --list --zookeeper localhost:2181
