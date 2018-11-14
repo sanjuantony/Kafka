@@ -16,9 +16,20 @@ kafka-server-stop $KAFKA_LIB_EXEC/config/server.properties
 
 # Commands to Create Kafka Topics
 # --------------------------------
-# kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <<topic-name>>
+# kafka-topics --create --zookeeper localhost:2181 --replication-factor <<factor_count>> \
+#           --partitions <<partition_count>> --topic <<topic-name>>
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 \
             --partitions 1 --topic Hello-Kafka
 
 # List Kafka Topics
-bin/kafka-topics.sh --list --zookeeper localhost:2181
+kafka-topics --list --zookeeper localhost:2181
+
+# Describe a Kafka Topic
+kafka-topics --describe --topic <<topic_name>> --zookeeper localhost:2181
+
+# Kafka Console Producer Commands
+kafka-console-producer --broker-list 127.0.0.1:9092 --topic <<topic_name>>
+
+# Kafka Console Consumer Commands
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic <<topic_name>>
+kafka-console-consumer --bootstrap-server 127.0.0.1:9092 --topic <<topic_name>> --from-beginning
