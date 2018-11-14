@@ -14,7 +14,7 @@ zkServer stop
 # Stop Kafka Server
 kafka-server-stop $KAFKA_LIB_EXEC/config/server.properties
 
-# Commands to Stop Kafka Services
+# Commands to Create Kafka Topics
 # --------------------------------
 # kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <<topic-name>>
 kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 \
