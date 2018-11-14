@@ -24,7 +24,7 @@ kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 \
 # List Kafka Topics
 kafka-topics --list --zookeeper localhost:2181
 
-# Describe a Kafka Topic
+# Describe a Kafka Topic 
 kafka-topics --describe --topic <<topic_name>> --zookeeper localhost:2181
 
 # Kafka Console Producer Commands
