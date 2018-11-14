@@ -4,15 +4,15 @@
 zkServer start
 
 # 2. Start Kafka Server
-kafka-server-start $KAFKA_HOME/config/server.properties
+kafka-server-start $KAFKA_LIB_EXEC/config/server.properties
 
 # Commands to Stop Kafka Services
 # --------------------------------
-# Start ZooKeeper
+# Stop ZooKeeper
 zkServer stop
 
-# Start Kafka Server
-kafka-server-stop $KAFKA_HOME/config/server.properties
+# Stop Kafka Server
+kafka-server-stop $KAFKA_LIB_EXEC/config/server.properties
 
 # Commands to Stop Kafka Services
 # --------------------------------
